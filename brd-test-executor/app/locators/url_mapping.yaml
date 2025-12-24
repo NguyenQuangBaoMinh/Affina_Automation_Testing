@@ -1,0 +1,65 @@
+# ============================================
+# URL Mapping for Test Automation
+# Map các module/tính năng với URLs tương ứng
+# ============================================
+
+# Base URL
+base_url: "https://agency-uat.affina.com.vn"
+
+# Authentication
+auth:
+  login: "/login"
+  logout: "/logout"
+  forgot_password: "/forgot-password"
+
+# User Profile
+profile:
+  view: "/user/profile"
+  edit: "/user/profile/edit"
+  change_password: "/user/change-password"
+
+# Contract Management (Hợp đồng CTV)
+contract:
+  list: "/account/contract"
+  create: "/account/contract/create"
+  edit: "/account/contract/edit/{id}"
+  view: "/account/contract/{id}"
+  delete: "/account/contract/delete/{id}"
+
+# Lead Management (Quản lý Lead)
+lead:
+  list: "/lead/list"
+  create: "/lead/create"
+  edit: "/lead/edit/{id}"
+  view: "/lead/detail/{id}"
+  assign: "/lead/assign"
+
+# Product Management (Sản phẩm)
+product:
+  list: "/product/list"
+  create: "/product/create"
+  edit: "/product/edit/{id}"
+  view: "/product/detail/{id}"
+
+# Deeplink
+deeplink:
+  list: "/deeplink"
+  create: "/deeplink/create"
+  analytics: "/deeplink/analytics"
+
+# Reports (Báo cáo)
+report:
+  dashboard: "/report/dashboard"
+  sales: "/report/sales"
+  performance: "/report/performance"
+
+# Settings (Cài đặt)
+settings:
+  general: "/settings"
+  kpi: "/settings/kpi"
+  notification: "/settings/notification"
+
+# Notes:
+# - {id} sẽ được thay thế bằng ID thực tế khi test
+# - Có thể thêm query parameters nếu cần: "?status=active"
+# - URL path có thể thay đổi, update ở đây để tất cả tests đều dùng đúng

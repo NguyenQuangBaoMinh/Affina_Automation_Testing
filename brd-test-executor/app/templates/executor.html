@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRD Test Executor - Phase 2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/executor.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 BRD Test Executor</h1>
+            <p class="subtitle">Tự động chạy test cases từ Google Sheet</p>
+        </header>
+
+        <main class="main-content">
+            <section class="card">
+                <h2>📋 Select Test Cases to Execute</h2>
+                
+                <div class="form-group">
+                    <label for="sheetInfo">Google Sheet:</label>
+                    <div class="sheet-info">
+                        <span id="sheetName">Loading...</span>
+                        <a id="sheetUrl" href="#" target="_blank" class="sheet-link">Open Sheet</a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="worksheetSelect">Select Worksheet:</label>
+                    <select id="worksheetSelect" class="form-control">
+                        <option value="">-- Loading worksheets... --</option>
+                    </select>
+                    <div class="worksheet-info">
+                        <span id="testCount" class="info-badge">0 test cases</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="browserSelect">Browser:</label>
+                    <select id="browserSelect" class="form-control">
+                        <option value="chromium">Chromium</option>
+                        <option value="firefox">Firefox</option>
+                        <option value="webkit">WebKit</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="headlessCheck">
+                        <span>Run in headless mode</span>
+                    </label>
+                </div>
+
+                <button id="runTestsBtn" class="btn btn-primary" disabled>
+                    🚀 Run Tests
+                </button>
+            </section>
+
+            <section id="executionSection" class="card" style="display: none;">
+                <h2>📊 Test Execution Status</h2>
+                
+                <div class="status-info">
+                    <div class="status-row">
+                        <span class="label">Status:</span>
+                        <span id="execStatus" class="status-badge status-pending">Pending</span>
+                    </div>
+                    <div class="status-row">
+                        <span class="label">Execution ID:</span>
+                        <span id="execId">-</span>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progressFill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="progressText">0/0 (0%)</span>
+                    </div>
+                </div>
+
+                <div class="test-stats">
+                    <div class="stat-item stat-passed">
+                        <div class="stat-label">✅ Passed</div>
+                        <div id="passedCount" class="stat-value">0</div>
+                    </div>
+                    <div class="stat-item stat-failed">
+                        <div class="stat-label">❌ Failed</div>
+                        <div id="failedCount" class="stat-value">0</div>
+                    </div>
+                    <div class="stat-item stat-pending">
+                        <div class="stat-label">⏸️ Pending</div>
+                        <div id="pendingCount" class="stat-value">0</div>
+                    </div>
+                </div>
+
+                <div class="current-test">
+                    <strong>Current Test:</strong>
+                    <span id="currentTest">-</span>
+                </div>
+
+                <div class="action-buttons">
+                    <a id="viewResultsBtn" href="#" target="_blank" class="btn btn-secondary" style="display: none;">
+                        📊 View Results in Google Sheet
+                    </a>
+                </div>
+            </section>
+
+            <section id="errorSection" class="card error-card" style="display: none;">
+                <h2>❌ Error</h2>
+                <div id="errorMessage" class="error-message"></div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>Phase 2: BRD Test Automation | Powered by Playwright & Azure OpenAI</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/executor.js') }}"></script>
+</body>
+</html>

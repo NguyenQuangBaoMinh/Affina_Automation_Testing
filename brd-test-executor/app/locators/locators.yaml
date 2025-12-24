@@ -1,0 +1,114 @@
+# ============================================
+# Element Locators for UAT Website
+# https://agency-uat.affina.com.vn/
+# Updated with correct selectors
+# ============================================
+
+# Login Page
+login:
+  username_input: "input[name='username'], #usernameHook, input[id*='username' i]"
+  password_input: "input[name='password'], input[type='password'], #password"
+  login_button: "button:has-text('Đăng nhập')"
+  forgot_password_link: "a:has-text('Quên mật khẩu')"
+  error_message: ".error-message, .alert-danger, [role='alert']"
+  affina_login_link: "a:has-text('Login bằng AFFINA')"
+
+# Dashboard/Home Page
+dashboard:
+  header: "header, .header, nav"
+  user_menu: ".user-menu, .profile-menu"
+  logout_button: "button:has-text('Đăng xuất'), a:has-text('Đăng xuất')"
+  welcome_message: ".welcome-message, h1"
+
+# Contract Management (Quản lý hợp đồng)
+contract:
+  # List page
+  list_table: "table, .table, [role='table']"
+  create_new_button: "button:has-text('Tạo mới'), a:has-text('Tạo mới')"
+  search_input: "input[placeholder*='Tìm kiếm'], input[type='search']"
+  search_button: "button:has-text('Tìm kiếm'), button[type='submit']"
+  
+  # Filters
+  status_dropdown: "select[name*='status'], select[id*='status'], .status-filter select"
+  date_from: "input[type='date'][name*='from'], input[placeholder*='Từ ngày']"
+  date_to: "input[type='date'][name*='to'], input[placeholder*='Đến ngày']"
+  
+  # Table columns
+  table_row: "table tbody tr, .table-row"
+  employee_code: "td:nth-child(1), .employee-code"
+  employee_name: "td:nth-child(2), .employee-name"
+  phone_number: "td:nth-child(3), .phone"
+  contract_status: "td:nth-child(4), .status"
+  action_button: "td:last-child button, .actions button"
+  
+  # Form fields (Create/Edit)
+  employee_code_input: "input[name*='employee'], input[id*='employee']"
+  employee_name_input: "input[name*='name'], input[placeholder*='Họ tên']"
+  phone_input: "input[name*='phone'], input[type='tel']"
+  email_input: "input[name*='email'], input[type='email']"
+  start_date: "input[name*='start'], input[placeholder*='Ngày bắt đầu']"
+  end_date: "input[name*='end'], input[placeholder*='Ngày kết thúc']"
+  contract_type: "select[name*='type'], select[id*='type']"
+  
+  # Buttons
+  save_button: "button:has-text('Lưu'), button[type='submit']"
+  cancel_button: "button:has-text('Hủy'), button:has-text('Cancel')"
+  delete_button: "button:has-text('Xóa'), button.delete"
+  edit_button: "button:has-text('Sửa'), button.edit, a:has-text('Sửa')"
+  
+  # Modals/Popups
+  modal: ".modal, [role='dialog']"
+  modal_title: ".modal-title, .modal-header h5"
+  modal_close: ".modal .close, button[aria-label='Close']"
+  confirm_button: ".modal button:has-text('Xác nhận'), .modal button.confirm"
+
+# Common Elements
+common:
+  # Navigation
+  sidebar: ".sidebar, nav.sidebar, aside"
+  menu_item: ".menu-item, .nav-item"
+  
+  # Notifications
+  success_toast: ".toast-success, .alert-success, [role='alert'].success"
+  error_toast: ".toast-error, .alert-danger, [role='alert'].error"
+  warning_toast: ".toast-warning, .alert-warning"
+  
+  # Loading
+  loading_spinner: ".spinner, .loading, [role='progressbar']"
+  
+  # Pagination
+  pagination: ".pagination, nav[aria-label='pagination']"
+  next_page: ".pagination .next, button:has-text('Next')"
+  prev_page: ".pagination .prev, button:has-text('Previous')"
+  
+  # Dropdowns (generic)
+  dropdown_trigger: ".dropdown-toggle, button[data-toggle='dropdown']"
+  dropdown_menu: ".dropdown-menu, [role='menu']"
+  dropdown_item: ".dropdown-item, [role='menuitem']"
+  
+  # Date Picker
+  datepicker: ".datepicker, input[type='date']"
+  datepicker_popup: ".datepicker-popup, .react-datepicker"
+  
+  # Checkboxes & Radio
+  checkbox: "input[type='checkbox']"
+  radio: "input[type='radio']"
+  
+  # Buttons (generic)
+  primary_button: "button.btn-primary, button.primary"
+  secondary_button: "button.btn-secondary, button.secondary"
+  danger_button: "button.btn-danger, button.danger"
+
+# Form Validation
+validation:
+  error_message: ".error, .invalid-feedback, .field-error"
+  required_field: ".required, [required]"
+  valid_field: ".valid, .is-valid"
+  invalid_field: ".invalid, .is-invalid"
+
+# File Upload
+upload:
+  file_input: "input[type='file']"
+  upload_button: "button:has-text('Upload'), button:has-text('Tải lên')"
+  file_preview: ".file-preview, .upload-preview"
+  remove_file: "button:has-text('Xóa'), .remove-file"
