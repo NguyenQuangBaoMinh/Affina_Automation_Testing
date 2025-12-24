@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRD Test Case Automation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🚀 BRD Test Case Automation</h1>
+                <p class="subtitle">Tự động sinh test cases từ BRD documents sử dụng LLM</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-card">
+                    <h2>📄 Upload BRD Documents</h2>
+                    <p class="description">Chọn file PDF BRD để tự động sinh test cases</p>
+
+                    <!-- Upload Area -->
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📁</div>
+                        <p class="upload-text">Kéo thả file vào đây hoặc click để chọn file</p>
+                        <p class="upload-hint">Hỗ trợ: PDF | Tối đa: 16MB</p>
+                        <input type="file" id="fileInput" accept=".pdf" multiple hidden>
+                    </div>
+
+                    <!-- Selected Files List -->
+                    <div class="selected-files" id="selectedFiles"></div>
+
+                    <!-- Settings -->
+                    <div class="settings">
+                        <div class="setting-item">
+                            <label for="targetCount">Số lượng test cases mục tiêu:</label>
+                            <input type="number" id="targetCount" value="55" min="5" max="100">
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button class="btn-generate" id="generateBtn" disabled>
+                        <span class="btn-text">Sinh Test Cases</span>
+                        <span class="btn-icon">✨</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section" id="progressSection" style="display: none;">
+                <div class="progress-card">
+                    <h3>⚙️ Đang xử lý...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p class="progress-text" id="progressText">Đang chuẩn bị...</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-card">
+                    <h3>✅ Kết quả</h3>
+
+                    <!-- 🆕 Tabs Navigation -->
+                    <div class="tabs">
+                        <button class="tab-btn active" data-tab="overview">📊 Tổng quan</button>
+                        <button class="tab-btn" data-tab="breakdown">📈 Phân tích Batch</button>
+                    </div>
+
+                    <!-- 🆕 Tab Content: Overview -->
+                    <div class="tab-content active" id="tab-overview">
+                        <div id="resultsContent"></div>
+
+                        <!-- 🆕 Continue Generation Section -->
+                        <div class="continue-section" id="continueSection" style="display: none;">
+                            <div class="coverage-alert">
+                                <div class="alert-header">
+                                    <span class="alert-icon">⚠️</span>
+                                    <span class="alert-title">Coverage chưa đủ</span>
+                                </div>
+                                <div class="alert-body">
+                                    <p>Còn thiếu: <strong id="remainingCount">235</strong> test cases (<strong id="remainingPercentage">73.4%</strong>)</p>
+                                    <p class="alert-suggestion">💡 Khuyến nghị: Tiếp tục generate để đạt ít nhất 80% coverage</p>
+                                </div>
+                            </div>
+                            <button class="btn-continue" id="continueBtn">
+                                <span class="btn-icon">🔄</span>
+                                <span class="btn-text">Tiếp tục sinh test cases</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 🆕 Tab Content: Batch Breakdown -->
+                    <div class="tab-content" id="tab-breakdown">
+                        <div id="breakdownContent"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Developed for Insurance Company IT Department - QC Test Automation Team</p>
+            <p class="config-info">
+                Model: <span id="modelInfo">Loading...</span> |
+                Coverage Target: <span id="coverageInfo">Loading...</span>
+            </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
